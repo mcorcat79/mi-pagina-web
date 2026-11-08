@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulces y Postres M</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #fdf6f0;
+      color: #4a3b32;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mi-logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #e95a92;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 5px 0;
+      color: #c72c68;
+      font-size: 2.5rem;
+    }
+
+    .eslogan {
+      font-style: italic;
+      color: #2b7a78;
+      margin-top: 0;
+      font-weight: 500;
+    }
+
+    .categorias button {
+      background-color: #e95a92;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .categorias button:hover {
+      background-color: #c72c68;
+    }
+
+    .contenedor-principal {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .contenedor-principal {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .tarjeta-producto {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      border: 1px solid #f3e1d3;
+    }
+
+    .tarjeta-producto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .tarjeta-producto h3 {
+      font-size: 1.2rem;
+      margin: 12px 0 5px 0;
+      color: #4a3b32;
+    }
+
+    .tarjeta-producto p {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #c72c68;
+      margin: 5px 0 12px 0;
+    }
+
+    .tarjeta-producto button {
+      background-color: #55b290;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .tarjeta-producto button:hover {
+      background-color: #398e70;
+    }
+
+    .carrito-seccion {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 2px solid #e95a92;
+      height: fit-content;
+    }
+
+    #btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    #btn-whatsapp:hover {
+      background-color: #1da851;
+    }
+
+    .total-pedido {
+      font-size: 18px;
+      color: #c72c68;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo-contenedor">
+
+      <img src="logo.jpeg"
+           alt="Logo Dulces y Postres M"
+           class="mi-logo">
+
+      <h1>Dulces y Postres M</h1>
+
+      <p class="eslogan">
+        "Dulzura en cada bocado, felicidad garantizada"
+      </p>
+
+    </div>
+
+    <nav class="categorias">
+
+      <button onclick="filtrarCategoria('todos')">
+        Todos
+      </button>
+
+      <button onclick="filtrarCategoria('postres')">
+        Postres
+      </button>
+
+      <button onclick="filtrarCategoria('galletas')">
+        Galletas
+      </button>
+
+      <button onclick="filtrarCategoria('chocolates')">
+        Chocolates
+      </button>
+
+      <button onclick="filtrarCategoria('salados')">
+        Salados
+      </button>
+
+      <button onclick="filtrarCategoria('especiales')">
+        Especiales
+      </button>
+
+    </nav>
+
+  </header>
+
+  <main class="contenedor-principal">
+
+    <!-- Aquí aparecerán automáticamente los productos -->
+
+    <section
+      id="contenedor-productos"
+      class="grid-productos">
+    </section>
+
+    <!-- Sección del carrito -->
+
+    <aside class="carrito-seccion">
+
+      <h2>Tu Pedido</h2>
+
+      <ul id="lista-carrito"></ul>
+
+      <hr>
+
+      <p class="total-pedido">
+        <strong>
+          Total: ₡<span id="total-precio">0</span>
+        </strong>
+      </p>
+
+      <button
+        id="btn-whatsapp"
+        onclick="enviarWhatsApp()">
+
+        Pedir por WhatsApp 💬
+
+      </button>
+
+    </aside>
+
+  </main>
+
+  <!-- Conexión con JavaScript -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
